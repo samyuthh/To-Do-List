@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow - To-Do List</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div>
+                <span class="tag">MY PRODUCTIVITY</span>
+
+                <h1>TaskFlow</h1>
+
+                <p>
+                    Organize your day, one task at a time.
+                </p>
+            </div>
+
+        </header>
+
+
+        <!-- Add Task -->
+        <section class="add-task">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="What needs to be done?"
+                maxlength="100"
+                autocomplete="off"
+            >
+
+            <button id="addButton">
+                <span>+</span>
+                Add Task
+            </button>
+
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="stat">
+                <strong id="totalCount">0</strong>
+                <span>Total</span>
+            </div>
+
+            <div class="stat">
+                <strong id="activeCount">0</strong>
+                <span>Active</span>
+            </div>
+
+            <div class="stat">
+                <strong id="completedCount">0</strong>
+                <span>Completed</span>
+            </div>
+
+        </section>
+
+
+        <!-- Filters -->
+        <nav class="filters">
+
+            <button class="filter active" data-filter="all">
+                All
+            </button>
+
+            <button class="filter" data-filter="active">
+                Active
+            </button>
+
+            <button class="filter" data-filter="completed">
+                Completed
+            </button>
+
+        </nav>
+
+
+        <!-- Tasks -->
+        <section class="tasks-container">
+
+            <ul id="taskList"></ul>
+
+
+            <!-- Empty state -->
+            <div id="emptyMessage" class="empty">
+
+                <div class="empty-icon">
+                    ✓
+                </div>
+
+                <h2>No tasks here</h2>
+
+                <p>
+                    Add a task above to get started.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer>
+
+            <span id="taskSummary">
+                0 tasks
+            </span>
+
+            <button id="clearCompleted">
+                Clear completed
+            </button>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

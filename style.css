@@ -1,0 +1,560 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 15px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b,
+            #334155
+        );
+
+    color: #1e293b;
+}
+
+
+/* =========================
+   MAIN APP
+========================= */
+
+.app {
+    width: 100%;
+    max-width: 700px;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.3);
+
+    animation: slideUp 0.5s ease;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes slideUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.tag {
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #64748b;
+}
+
+h1 {
+    margin-top: 8px;
+
+    font-size: 38px;
+
+    color: #0f172a;
+}
+
+.header p {
+    margin-top: 6px;
+
+    color: #64748b;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   ADD TASK
+========================= */
+
+.add-task {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+#taskInput {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 15px 17px;
+
+    border: 2px solid #e2e8f0;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+#taskInput:focus {
+    border-color: #475569;
+
+    box-shadow:
+        0 0 0 3px rgba(71, 85, 105, 0.1);
+}
+
+
+#addButton {
+    border: none;
+
+    padding: 0 22px;
+
+    border-radius: 10px;
+
+    background: #0f172a;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#addButton:hover {
+    background: #334155;
+
+    transform: translateY(-1px);
+}
+
+#addButton span {
+    font-size: 20px;
+
+    vertical-align: middle;
+
+    margin-right: 4px;
+}
+
+
+/* =========================
+   STATISTICS
+========================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.stat {
+    padding: 15px;
+
+    text-align: center;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 10px;
+}
+
+.stat strong {
+    display: block;
+
+    font-size: 24px;
+
+    color: #0f172a;
+}
+
+.stat span {
+    font-size: 12px;
+
+    color: #64748b;
+}
+
+
+/* =========================
+   FILTERS
+========================= */
+
+.filters {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 25px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.filter {
+    border: none;
+
+    background: transparent;
+
+    padding: 8px 14px;
+
+    border-radius: 7px;
+
+    color: #64748b;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+.filter:hover {
+    background: #f1f5f9;
+
+    color: #0f172a;
+}
+
+.filter.active {
+    background: #0f172a;
+
+    color: white;
+}
+
+
+/* =========================
+   TASK LIST
+========================= */
+
+#taskList {
+    list-style: none;
+
+    margin-top: 18px;
+}
+
+
+/* Individual task */
+
+.task-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 10px;
+
+    background: white;
+
+    animation: taskAppear 0.25s ease;
+
+    transition: 0.2s;
+}
+
+@keyframes taskAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.task-item:hover {
+    border-color: #cbd5e1;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================
+   CHECK BUTTON
+========================= */
+
+.check-button {
+    width: 22px;
+    height: 22px;
+
+    flex-shrink: 0;
+
+    border: 2px solid #94a3b8;
+
+    border-radius: 50%;
+
+    background: white;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.task-item.completed .check-button {
+    background: #0f172a;
+
+    border-color: #0f172a;
+}
+
+.task-item.completed .check-button::after {
+    content: "✓";
+
+    display: block;
+
+    color: white;
+
+    font-size: 13px;
+
+    line-height: 18px;
+}
+
+
+/* =========================
+   TASK TEXT
+========================= */
+
+.task-text {
+    flex: 1;
+
+    min-width: 0;
+
+    font-size: 15px;
+
+    color: #334155;
+
+    word-break: break-word;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+
+    color: #94a3b8;
+}
+
+
+/* =========================
+   DELETE BUTTON
+========================= */
+
+.delete-button {
+    border: none;
+
+    background: transparent;
+
+    color: #94a3b8;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    transition: 0.2s;
+}
+
+.delete-button:hover {
+    background: #fee2e2;
+
+    color: #dc2626;
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    color: #64748b;
+}
+
+.empty-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    background: #f1f5f9;
+
+    color: #64748b;
+
+    font-size: 24px;
+}
+
+.empty h2 {
+    margin-top: 15px;
+
+    font-size: 18px;
+
+    color: #334155;
+}
+
+.empty p {
+    margin-top: 5px;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 10px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #e2e8f0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+#clearCompleted {
+    border: none;
+
+    background: transparent;
+
+    color: #64748b;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+#clearCompleted:hover {
+    color: #dc2626;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .app {
+        padding: 25px 20px;
+
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .add-task {
+        flex-direction: column;
+    }
+
+    #addButton {
+        height: 48px;
+    }
+
+    .stats {
+        gap: 7px;
+    }
+
+    .stat {
+        padding: 12px 5px;
+    }
+
+    .stat strong {
+        font-size: 20px;
+    }
+
+    .filters {
+        justify-content: center;
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+}
